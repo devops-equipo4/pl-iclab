@@ -5,7 +5,7 @@ def validBranch(){
     def branchesValid = ['develop', 'release', 'feature']
 
 
-    printf "validBranch BRANCH" + branch
+    printf "validBranch BRANCH: " + branch
 
     if(branch =~ "/develop*/"){
         printf "Brach developer"
