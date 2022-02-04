@@ -7,17 +7,17 @@ def validBranch(){
 
     printf "validBranch BRANCH" + branch
 
-    if(branch ==~ "/develop*/"){
-        echo "Brach developer"
+    if(branch =~ "/develop*/"){
+        printf "Brach developer"
         return 'develop'
     }
-    if(branch ==~ "/feature*/"){
-        echo "Brach feature"
+    if(branch =~ "/feature*/"){
+        printf "Brach feature"
         return 'feature'
     }
-    if(branch ==~ "/release*/"){
+    if(branch =~ "/release*/"){
         if(validaBranchRelease(branch)){
-            echo "Brach release"
+            printf "Brach release"
             return 'release'
         }
     }
