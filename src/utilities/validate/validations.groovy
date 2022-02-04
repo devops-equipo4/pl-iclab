@@ -22,7 +22,6 @@ def validBranch(){
             return "release"
         }
     }
-}
     return '';
 }
 
