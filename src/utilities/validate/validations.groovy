@@ -5,6 +5,8 @@ def validBranch(){
     def branchesValid = ['develop', 'release', 'feature']
 
 
+    printf "validBranch BRANCH" + branch
+
     if(branch ==~ "/develop/"){
         echo "Brach developer"
         return 'develop'
