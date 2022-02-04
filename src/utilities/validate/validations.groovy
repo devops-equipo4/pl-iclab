@@ -5,15 +5,15 @@ def validBranch(){
     def branchesValid = ['develop', 'release', 'feature']
 
 
-    if(branch.match("/develop/")){
+    if(branch ==~ "/develop/"){
         echo "Brach developer"
         return 'develop'
     }
-    if(branch.contains("/feature/")){
+    if(branch ==~ "/feature/"){
         echo "Brach feature"
         return 'feature'
     }
-    if(branch.contains("/release/")){
+    if(branch ==~ "/release/"){
         if(validaBranchRelease(branch)){
             echo "Brach release"
             return 'release'
