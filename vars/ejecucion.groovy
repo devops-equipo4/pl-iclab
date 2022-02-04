@@ -32,10 +32,10 @@ def call(){
                 }
                 post{
                     success{
-                        slackSend color: 'good', message: "[Grupo4][Pipeline ${env.PIPELINE}][Rama ${env.BRANCH}][Stage: ${env.STAGE}][Resultado: Ok]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-rmateluna'
+                        slackSend color: 'good', message: "[Grupo4][Pipeline ${env.PIPELINE}][Rama ${env.GIT_BRANCH}][Stage: ${env.STAGE}][Resultado: Ok]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-rmateluna'
                     }
                     failure{
-                        slackSend color: 'danger', message: "[Grupo4][Pipeline ${env.PIPELINE}][Rama ${env.BRANCH}][Stage: ${env.STAGE}][Resultado: No Ok]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-rmateluna'
+                        slackSend color: 'danger', message: "[Grupo4][Pipeline ${env.PIPELINE}][Rama ${env.GIT_BRANCH}][Stage: ${env.STAGE}][Resultado: No Ok]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-rmateluna'
                     }
                 }
             }
