@@ -19,6 +19,11 @@ def call(){
                         env.PIPELINE = ""
                         def validations = new validate.validations();
 
+                        def branch = validations.validBranch()
+                        echo "-----"
+                        echo "$branch"
+                        echo "-----"
+
                         if(!validations.validBranch().isEmpty()){
                             if(validations.validBranch().contains("develop") || validations.validBranch().contains("feature")){
                                 //Integracion Continua
