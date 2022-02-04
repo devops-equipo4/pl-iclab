@@ -23,11 +23,9 @@ def call(){
                             if(validations.validBranch().contains("develop") || validations.validBranch().contains("feature")){
                                 //Integracion Continua
                                 env.PIPELINE = "IC"
-                            }
+                            }else{
                                 //Despliegue continuo
                                 env.PIPELINE = "RELEASE"
-                            }
-
                             }
                         }
                     }
