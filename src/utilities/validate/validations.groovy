@@ -48,7 +48,7 @@ def validateBranchRelease(String branch){
 }
 
 def validateBranchDevelop(){
-    if(env.GIT_BRANCH.matches("/develop*/")){
+    if(env.GIT_BRANCH =~ "develop*"){
         return true;
     }
     return false;
