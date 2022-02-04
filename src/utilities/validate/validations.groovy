@@ -16,11 +16,13 @@ def validBranch(){
         return 'feature'
     }
     if(branch =~ "release*"){
-        if(validaBranchRelease(branch)){
+        def valRelease = validateBranchRelease(branch)
+        if (valRelease){
             printf "Brach release"
-            return 'release'
+            return "release"
         }
     }
+}
     return '';
 }
 
@@ -39,7 +41,7 @@ def isGradle(){
 }
 
 def validateBranchRelease(String branch){
-    if(branch.matches("release-v[0-9]{1,2}-[0-9]{1,2}-[0-9]{1,2}")){
+    if(bra =~ "release-v[0-9]{1,2}-[0-9]{1,2}-[0-9]{1,2}"){
         return true;
     }
     return false;
