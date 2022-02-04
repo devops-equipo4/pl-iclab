@@ -4,20 +4,19 @@ def validBranch(){
     def branch = env.GIT_BRANCH
     def branchesValid = ['develop', 'release', 'feature']
 
-    if(branchesValid.contains(branch)){
-        if(branch.contains("develop")){
-            echo "Brach developer"
-            return 'develop'
-        }
-        if(branch.contains("feature")){
-            echo "Brach feature"
-            return 'feature'
-        }
-        if(branch.contains("release")){
-            if(validaBranchRelease(branch)){
-                echo "Brach release"
-                return 'release'
-            }
+
+    if(branch.match("/develop/")){
+        echo "Brach developer"
+        return 'develop'
+    }
+    if(branch.contains("/feature/")){
+        echo "Brach feature"
+        return 'feature'
+    }
+    if(branch.contains("/release/")){
+        if(validaBranchRelease(branch)){
+            echo "Brach release"
+            return 'release'
         }
     }
     return '';
