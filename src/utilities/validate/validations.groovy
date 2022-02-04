@@ -40,7 +40,7 @@ def isGradle(){
 }
 
 def validateBranchRelease(String branch){
-    if(bra =~ "release-v[0-9]{1,2}-[0-9]{1,2}-[0-9]{1,2}"){
+    if(branch =~ "release-v[0-9]{1,2}-[0-9]{1,2}-[0-9]{1,2}"){
         return true;
     }
     return false;
