@@ -1,6 +1,7 @@
 import utilities.*
 
-def call(stages){
+//def call(stages){
+def call(){
 
     def listStagesOrder = [
         'compile': 'sCompile',
@@ -10,9 +11,10 @@ def call(stages){
         'nexusUpload': 'sNexusUpload',
         'gitCreateRelease': 'sGitCreateRelease',
     ]
-    if (stages.isEmpty()){
-        allStages()
-    }
+    allStages()
+    //if (stages.isEmpty()){
+    //    allStages()
+    //}
 }
 
 def allStages(){
