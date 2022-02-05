@@ -55,9 +55,8 @@ def sSonar(){
             sh "echo $env.GIT_BRANCH"
             sh "echo $env.BUILD_NUMBER"
             def cappedBranch = $env.GIT_BRANCH
-            string branch2 = cappedBranch.split('/')[1]
-            sh "println $branch2"
-            sh "echo $branch2"
+            env.BRANCHSONAR = cappedBranch.split('/')[1]
+            sh "echo $env.BRANCHSONAR"
             //sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=${env.GIT_REPO_NAME}-${env.GIT_BRANCH}-${env.BUILD_NUMBER} -Dsonar.java.binaries=build'
             sh 'echo "-Dsonar.projectKey=$env.GIT_REPO_NAME-$branch2-$env.BUILD_NUMBER -Dsonar.java.binaries=build"'
             //sh "mvn clean verify sonar:sonar -Dsonar.projectKey=$env.GIT_REPO_NAME-$branch2-$env.BUILD_NUMBER -Dsonar.java.binaries=build"
