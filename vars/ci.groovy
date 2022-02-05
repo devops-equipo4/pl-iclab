@@ -54,7 +54,9 @@ def sSonar(){
             sh "echo $env.GIT_REPO_NAME"
             sh "echo $env.GIT_BRANCH"
             sh "echo $env.BUILD_NUMBER"
-            sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=${env.GIT_REPO_NAME}-${env.GIT_BRANCH}-${env.BUILD_NUMBER} -Dsonar.java.binaries=build'
+            //sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=${env.GIT_REPO_NAME}-${env.GIT_BRANCH}-${env.BUILD_NUMBER} -Dsonar.java.binaries=build'
+            sh 'echo "-Dsonar.projectKey=$env.GIT_REPO_NAME-$env.GIT_BRANCH-$env.BUILD_NUMBER -Dsonar.java.binaries=build"'
+            sh "mvn clean verify sonar:sonar -Dsonar.projectKey=$env.GIT_REPO_NAME-$env.GIT_BRANCH-$env.BUILD_NUMBER -Dsonar.java.binaries=build"
         }
     }
 }
