@@ -2,10 +2,6 @@ package utilities.validate
 
 def validBranch(){
     def branch = env.GIT_BRANCH
-    def branchesValid = ['develop', 'release', 'feature']
-
-
-    printf "validBranch BRANCH: " + branch
 
     if(branch =~ "develop*"){
         printf "Brach developer"
