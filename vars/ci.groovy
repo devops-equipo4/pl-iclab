@@ -20,9 +20,9 @@ def call(){
 def allStages(){
     //sCompile()
     //sUnitTest()
-    sJar()
-    sSonar()
-    //sNexusUpload()
+    //sJar()
+    //sSonar()
+    sNexusUpload()
     //sGitCreateRelease()
 }
 
