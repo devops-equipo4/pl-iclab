@@ -20,7 +20,7 @@ def call(){
 def allStages(){
     //sCompile()
     //sUnitTest()
-    //sJar()
+    sJar()
     sSonar()
     //sNexusUpload()
     //sGitCreateRelease()
