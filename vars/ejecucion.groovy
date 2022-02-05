@@ -36,6 +36,7 @@ def call(){
                                 //Despliegue continuo
                                 env.PIPELINE = "RELEASE"
                                 //cd.call(params.stages)
+                                cd.call()
                             }
                         }
                     }

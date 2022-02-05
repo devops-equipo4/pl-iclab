@@ -1,6 +1,6 @@
 import utilities.*
 
-def call(stages){
+def call(){
 
     def listStagesOrder = [
         'gitDiff': 'sGitDiff',
@@ -11,38 +11,38 @@ def call(stages){
         'gitTagMaster': 'sGitTagMaster',
     ]
 
-    if (stages.isEmpty()){
-        allStages()
-    }
+    //if (stages.isEmpty()){
+    allStages()
+    //}
 }
 
 def allStages(){
     sGitDiff()
     sNexusDownload()
-    sRun()
-    sGitMergeMain()
-    sGitMergeDevelop()
-    sGitTagMain()
+    //sRun()
+    //sGitMergeMain()
+    //sGitMergeDevelop()
+    //sGitTagMain()
 }
 
 def sGitDiff(){
     env.STAGE = "Stage Git Diff"
     stage("$env.STAGE"){
-        sh "git diff ${env.BRANCH} .. main"
+        sh "git diff $env.BRANCH .. main"
     }
 }
 
 def sNexusDownload(){
     env.STAGE = "Stage Nexus Download"
     stage("$env.STAGE"){
-
+        sh ' curl -X GET -u $NEXUS_USER:$NEXUS_PASSWORD "http://nexus:8082/repository/devops-usach-nexus/com/devopsusach2020/DevOpsUsach2020/0.0.1/DevOpsUsach2020-0.0.1.jar" -O'
     }
 }
 
 def sRun(){
     env.STAGE = "Stage Run"
     stage("$env.STAGE"){
-
+        sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
     }
 }
 
