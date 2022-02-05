@@ -18,6 +18,7 @@ def call(){
                         env.STAGE  = ""
                         env.PIPELINE = ""
                         env.STAGES = stages
+                        env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                         def validations = new validate.validations();
 
                         def branch = validations.validBranch()
