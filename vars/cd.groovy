@@ -28,7 +28,7 @@ def allStages(){
 def sGitDiff(){
     env.STAGE = "Stage Git Diff"
     stage("$env.STAGE"){
-        sh "git diff main"
+        sh "echo 'git diff origin/main'"
     }
 }
 
