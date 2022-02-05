@@ -4,7 +4,7 @@ def validBranch(){
     def branch = env.GIT_BRANCH
 
     if(branch =~ "develop*"){
-        printf "Brach developer"
+        printf "Branch developer"
         return 'develop'
     }
     if(branch =~ "feature*"){
