@@ -51,9 +51,9 @@ def sSonar(){
     env.STAGE = "Stage Sonar"
     stage("$env.STAGE"){
         withSonarQubeEnv('sonarqube') {
-            sh 'echo ${env.GIT_REPO_NAME}'
-            sh 'echo ${env.GIT_BRANCH}'
-            sh 'echo ${env.BUILD_NUMBER}'
+            sh 'echo $env.GIT_REPO_NAME'
+            sh 'echo $env.GIT_BRANCH'
+            sh 'echo $env.BUILD_NUMBER'
             sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=${env.GIT_REPO_NAME}-${env.GIT_BRANCH}-${env.BUILD_NUMBER} -Dsonar.java.binaries=build'
         }
     }
