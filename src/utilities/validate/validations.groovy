@@ -2,7 +2,8 @@ package utilities.validate
 
 def validBranch(){
     def branch = env.GIT_BRANCH
-
+    env.BRANCH = branch.split('/')[1]
+    
     if(branch =~ "develop*"){
         printf "Branch developer"
         return 'develop'
