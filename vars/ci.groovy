@@ -18,10 +18,10 @@ def call(){
 }
 
 def allStages(){
-    //sCompile()
-    //sUnitTest()
-    //sJar()
-    //sSonar()
+    sCompile()
+    sUnitTest()
+    sJar()
+    sSonar()
     sNexusUpload()
     //sGitCreateRelease()
 }
@@ -84,10 +84,7 @@ def sGitCreateRelease(){
     env.STAGE = "Stage Git Create Release"
     stage("Stage Git Create Release"){
         if(validateBranchDevelop()){
-            sh "git checkout develop"
-            sh "git pull"
-            sh "git checkout -b release-v${env.BUILD_NUMBER}"
-            sh "git push origin release-v${env.BUILD_NUMBER}"
+            sh 'echo "Release se realizará manual"'
         }
     }
 }
