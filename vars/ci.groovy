@@ -65,7 +65,7 @@ def sNexusUpload() {
                         [$class         : 'MavenPackage',
                          mavenAssetList : [
                                  [classifier: '',
-                                  extension : '.jar',
+                                  extension : 'jar',
                                   filePath  : 'build/DevOpsUsach2020-0.0.1.jar'
                                  ]
                          ],
@@ -90,14 +90,4 @@ def sGitCreateRelease() {
         }
     }
 }
-/*
-def sGitCreateRelease() {
-    stage("Git Create Release"){
-        env.STAGE = env.STAGE_NAME
-        sh "git checkout develop && git pull origin develop"
-        sh "git checkout -b release-v2-0-0"
-        sh "git push origin release-v2-0-0"
-    }
-}
-*/
 return this;
