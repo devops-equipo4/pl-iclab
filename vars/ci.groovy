@@ -92,7 +92,10 @@ def sGitCreateRelease() {
             sh "git checkout -b release-v$env.BUILD_NUMBER.0.0"
             sh 'git add .'
             sh 'git commit -am "creacion de release"'
-            sh "git push origin release-v$env.BUILD_NUMBER.0.0"
+            //sh "git push origin release-v$env.BUILD_NUMBER.0.0"
+            withCredentials([usernamePassword(credentialsId: 'credentialGithub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/devops-equipo4/ms-iclab.git')
+            }
 
             //sh 'git branch -D release-v4.0.0'
 
