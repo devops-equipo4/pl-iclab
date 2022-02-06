@@ -83,7 +83,7 @@ def sNexusUpload(){
 def sGitCreateRelease(){
     env.STAGE = "Stage Git Create Release"
     stage("Stage Git Create Release"){
-        if(validateBranchDevelop()){
+        if(validations.validateBranchDevelop()){
             sh 'echo "Release se realizará manual"'
         }
     }
