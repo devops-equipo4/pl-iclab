@@ -63,7 +63,7 @@ def sGitMergeMain(){
         sh "git pull"
         sh "git checkout main"
         //sh "git pull"
-        sh "git merge origin ${env.BRANCH} --no-ff --allow-unrelated-histories"
+        sh "git merge ${env.BRANCH} --no-ff --allow-unrelated-histories"
         sh "git push origin main"
     }
 }
