@@ -18,11 +18,12 @@ def call() {
 }
 
 def allStages() {
-    sCompile()
+   /* sCompile()
     sUnitTest()
     sJar()
     sSonar()
     sNexusUpload()
+        */
     sGitCreateRelease()
 }
 
