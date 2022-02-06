@@ -84,18 +84,17 @@ def sNexusUpload() {
 def sGitCreateRelease() {
     env.STAGE = "Stage Git Create Release"
     stage("Stage Git Create Release") {
-                if (env.GIT_BRANCH =~ "develop*") {
-           // sh 'git remote set-url origin git@github.com:devops-equipo4/ms-iclab.git'
-          //  sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
+        if (env.GIT_BRANCH =~ "develop*") {
+            //def version = $env.BUILD_NUMBER
+            // sh 'git remote set-url origin git@github.com:devops-equipo4/ms-iclab.git'
+            //  sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
             //sh 'git config --global user.name "nfuenzalidam"'
-            sh 'git checkout -b release-v{$env.BUILD_NUMBER}.0.0'
+            sh "git checkout -b release-v{$env.BUILD_NUMBER}.0.0"
             sh 'git add .'
             sh 'git commit -am "creacion de release"'
-            sh 'git push origin release-v{$env.BUILD_NUMBER}.0.0'
+            sh "git push origin release-v{$env.BUILD_NUMBER}.0.0"
 
             //sh 'git branch -D release-v4.0.0'
-
-
 
 
         }
