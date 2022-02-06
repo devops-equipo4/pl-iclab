@@ -93,7 +93,7 @@ def sGitCreateRelease() {
             sh 'git commit -am "creacion de release"'
             //sh 'git push origin release-v2.0.0'
 
-            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:devops-equipo4/ms-iclab.git origin release-v6.0.0'
+            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:devops-equipo4/ms-iclab.git --force origin release-v6.0.0'
 
             //sh 'git branch -D release-v4.0.0'
 
