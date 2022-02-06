@@ -86,8 +86,8 @@ def sGitCreateRelease() {
     stage("Stage Git Create Release") {
         sh 'echo "RETORNO $env.STAGE"'
         if (env.GIT_BRANCH =~ "develop*") {
-            sh 'git flow release start v1.0.0'
-            sh 'git flow release publish v1.0.0'
+            sh 'git checkout -b release/v1.0.0'
+            sh 'git push origin release/v1.0.0'
         }
     }
 }
