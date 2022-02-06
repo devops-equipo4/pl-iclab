@@ -88,12 +88,11 @@ def sGitCreateRelease() {
         if (env.GIT_BRANCH =~ "develop*") {
             sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
             sh 'git config --global user.name "nfuenzalidam"'
-            sh 'git checkout -b release-v6.0.0'
+            sh 'git checkout -b release-v7.0.0'
             sh 'git add .'
             sh 'git commit -am "creacion de release"'
-            //sh 'git push origin release-v2.0.0'
 
-            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:devops-equipo4/ms-iclab.git --force origin release-v6.0.0'
+            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:devops-equipo4/ms-iclab.git --force origin release-v7.0.0'
 
             //sh 'git branch -D release-v4.0.0'
 
