@@ -60,6 +60,7 @@ def sGitMergeMain(){
     env.STAGE = "Stage Git Merge Main"
     stage("$env.STAGE"){
         sh "git checkout main"
+        sh "git pull"
         sh "git merge ${env.BRANCH}"
         sh "git push origin main"
     }
