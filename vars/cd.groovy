@@ -44,7 +44,7 @@ def sNexusDownload(){
 def sRun(){
     env.STAGE = "Stage Run"
     stage("$env.STAGE"){
-        sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
+        sh 'nohup java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
     }
 }
 
