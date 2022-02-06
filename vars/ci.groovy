@@ -89,13 +89,13 @@ def sGitCreateRelease() {
             // sh 'git remote set-url origin git@github.com:devops-equipo4/ms-iclab.git'
             //  sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
             //sh 'git config --global user.name "nfuenzalidam"'
+
+            sh "git checkout develop && git pull origin develop"
             sh "git checkout -b release-v$env.BUILD_NUMBER.0.0"
-            sh 'git add .'
-            sh 'git commit -am "creacion de release"'
-            //sh "git push origin release-v$env.BUILD_NUMBER.0.0"
-            withCredentials([usernamePassword(credentialsId: 'credentialGithub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/devops-equipo4/ms-iclab.git')
-            }
+            //sh 'git add .'
+            //sh 'git commit -am "creacion de release"'
+            sh "git push origin release-v$env.BUILD_NUMBER.0.0"
+
 
             //sh 'git branch -D release-v4.0.0'
 
