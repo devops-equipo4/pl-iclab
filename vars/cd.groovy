@@ -51,7 +51,8 @@ def sRun(){
 def sTest(){
     env.STAGE = "Stage Test"
     stage("$env.STAGE"){
-        sh "sleep 60 && curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
+        sh 'echo "test"'
+       // sh "sleep 60 && curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
     }
 }
 
