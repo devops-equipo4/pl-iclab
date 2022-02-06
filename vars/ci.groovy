@@ -18,12 +18,12 @@ def call() {
 }
 
 def allStages() {
-   /* sCompile()
-    sUnitTest()
-    sJar()
-    sSonar()
-    sNexusUpload()
-        */
+    /* sCompile()
+     sUnitTest()
+     sJar()
+     sSonar()
+     sNexusUpload()
+         */
     sGitCreateRelease()
 }
 
@@ -85,11 +85,7 @@ def sGitCreateRelease() {
     env.STAGE = "Stage Git Create Release"
     stage("Stage Git Create Release") {
         sh 'echo "RETORNO $env.STAGE"'
-
-        env.RETORNO = validations.validateBranchDevelop()
-
-        sh 'echo "RETORNO $env.RETORNO"'
-        if (r) {
+        if (env.GIT_BRANCH =~ "develop*") {
             sh 'echo "Release se realizará manual"'
         }
     }
