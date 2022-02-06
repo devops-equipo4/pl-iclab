@@ -23,7 +23,7 @@ def allStages(){
     sJar()
     sSonar()
     sNexusUpload()
-    //sGitCreateRelease()
+    sGitCreateRelease()
 }
 
 def sCompile(){
