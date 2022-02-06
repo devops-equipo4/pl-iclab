@@ -1,21 +1,24 @@
 import utilities.*
 
-def call(){
+def call() {
     pipeline {
         agent any
         environment {
-            NEXUS_USER      = credentials('user-nexus')
-            NEXUS_PASSWORD  = credentials('password-nexus')
+            NEXUS_USER = credentials('user-nexus')
+            NEXUS_PASSWORD = credentials('password-nexus')
+            GIT_USERNAME = credentials('GIT_USERNAME')
+            GIT_PASSWORD = credentials('GIT_PASSWORD')
+
         }
         //parameters {
-            //string  name: 'stages', description: 'Ingrese los stages para ejecutar', trim: true
+        //string  name: 'stages', description: 'Ingrese los stages para ejecutar', trim: true
         //}
         stages {
             stage('pipeline') {
                 steps {
                     script {
                         sh "env"
-                        env.STAGE  = ""
+                        env.STAGE = ""
                         env.PIPELINE = ""
                         //env.STAGES = stages
                         env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
@@ -26,13 +29,13 @@ def call(){
                         echo "$branch"
                         echo "-----"
 
-                        if(!branch.isEmpty()){
-                            if(branch.contains("develop") || branch.contains("feature")){
+                        if (!branch.isEmpty()) {
+                            if (branch.contains("develop") || branch.contains("feature")) {
                                 //Integracion Continua
                                 env.PIPELINE = "IC"
                                 ci.call()
                                 //ci.call(params.stages)
-                            }else{
+                            } else {
                                 //Despliegue continuo
                                 env.PIPELINE = "RELEASE"
                                 //cd.call(params.stages)
@@ -41,12 +44,12 @@ def call(){
                         }
                     }
                 }
-                post{
-                    success{
+                post {
+                    success {
                         //slackSend color: 'good', message: "[Grupo4][Pipeline ${env.PIPELINE}][Rama ${env.GIT_BRANCH}][Stage: ${env.STAGES}][Resultado: Ok]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token-jenkins-slack'
                         echo "si"
                     }
-                    failure{
+                    failure {
                         //slackSend color: 'danger', message: "[Grupo4][Pipeline ${env.PIPELINE}][Rama ${env.GIT_BRANCH}][Stage: ${env.STAGES}][Resultado: No Ok]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token-jenkins-slack'
                         echo "no"
                     }
