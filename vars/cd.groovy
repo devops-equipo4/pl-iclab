@@ -22,7 +22,7 @@ def allStages(){
     sNexusDownload()
     sRun()
     sTest()
-    //sGitMergeMain()
+    sGitMergeMain()
     //sGitMergeDevelop()
     //sGitTagMain()
 }
@@ -60,6 +60,7 @@ def sGitMergeMain(){
     stage("$env.STAGE"){
         sh "git checkout main"
         sh "git merge ${env.BRANCH}"
+        sh "git push origin main"
     }
 }
 
