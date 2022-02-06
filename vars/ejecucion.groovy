@@ -6,8 +6,8 @@ def call() {
         environment {
             NEXUS_USER = credentials('user-nexus')
             NEXUS_PASSWORD = credentials('password-nexus')
-            GIT_USERNAME = credentials('GIT_USERNAME')
-            GIT_PASSWORD = credentials('GIT_PASSWORD')
+            //GIT_USERNAME = credentials('GIT_USERNAME')
+            //GIT_PASSWORD = credentials('GIT_PASSWORD')
 
         }
         //parameters {
