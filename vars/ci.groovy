@@ -86,13 +86,13 @@ def sGitCreateRelease() {
     stage("Stage Git Create Release") {
         sh 'echo "RETORNO $env.STAGE"'
         if (env.GIT_BRANCH =~ "develop*") {
-            sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
-            sh 'git config --global user.name "nfuenzalidam"'
-            sh 'git checkout -b release-v10.0.0'
+            sh 'git remote set-url origin git@github.com:devops-equipo4/ms-iclab.git'
+          //  sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
+            //sh 'git config --global user.name "nfuenzalidam"'
+            sh 'git checkout -b release-v11.0.0'
             sh 'git add .'
             sh 'git commit -am "creacion de release"'
-
-            sh 'git push https://luismellareyes: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@github.com:devops-equipo4/ms-iclab.git --force origin release-v10.0.0'
+            sh 'git push'
 
             //sh 'git branch -D release-v4.0.0'
 
