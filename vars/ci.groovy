@@ -80,7 +80,7 @@ def sNexusUpload() {
                 ]
     }
 }
-
+/*
 def sGitCreateRelease() {
     env.STAGE = "Stage Git Create Release"
     stage("Stage Git Create Release") {
@@ -101,6 +101,15 @@ def sGitCreateRelease() {
 
 
         }
+    }
+}*/
+
+def sGitCreateRelease() {
+    stage("Git Create Release"){
+        env.STAGE = env.STAGE_NAME
+        sh "git checkout develop && git pull origin develop"
+        sh "git checkout -b release-v2-0-0"
+        sh "git push origin release-v2-0-0"
     }
 }
 
