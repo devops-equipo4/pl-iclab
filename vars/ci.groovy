@@ -80,7 +80,7 @@ def sNexusUpload() {
                 ]
     }
 }
-/*
+
 def sGitCreateRelease() {
     env.STAGE = "Stage Git Create Release"
     stage("Stage Git Create Release") {
@@ -90,11 +90,11 @@ def sGitCreateRelease() {
             //  sh 'git config --global user.email "nestor.fuenzalida@gmail.com"'
             //sh 'git config --global user.name "nfuenzalidam"'
             sh 'echo "hola"'
-            //sh "git checkout develop && git pull origin develop"
-            // sh "git checkout -b release-v$env.BUILD_NUMBER.0.0"
+            sh "git checkout develop && git pull origin develop"
+            sh "git checkout -b release-v$env.BUILD_NUMBER-0-0"
             //sh 'git add .'
             // sh 'git commit -am "creacion de release"'
-            //sh "echo 'git push --set-upstream origin release-v$env.BUILD_NUMBER.0.0'"
+            sh "echo 'git push --set-upstream origin release-v$env.BUILD_NUMBER-0-0'"
 
 
             //sh 'git branch -D release-v4.0.0'
@@ -102,8 +102,8 @@ def sGitCreateRelease() {
 
         }
     }
-}*/
-
+}
+/*
 def sGitCreateRelease() {
     stage("Git Create Release"){
         env.STAGE = env.STAGE_NAME
@@ -112,5 +112,5 @@ def sGitCreateRelease() {
         sh "git push origin release-v2-0-0"
     }
 }
-
+*/
 return this;
