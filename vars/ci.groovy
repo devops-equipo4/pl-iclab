@@ -94,7 +94,7 @@ def sGitCreateRelease() {
             sh "git checkout -b release-v$env.BUILD_NUMBER.0.0"
             sh 'git add .'
             sh 'git commit -am "creacion de release"'
-            sh "echo 'git push --set-upstream origin release-v$env.BUILD_NUMBER.0.0'"
+            //sh "echo 'git push --set-upstream origin release-v$env.BUILD_NUMBER.0.0'"
 
 
             //sh 'git branch -D release-v4.0.0'
