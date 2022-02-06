@@ -6,6 +6,7 @@ def call(){
         'gitDiff': 'sGitDiff',
         'nexusDownload': 'sNexusDownload',
         'run': 'sRun',
+        'test': 'sTest',
         'gitMergeMaster': 'sGitMergeMaster',
         'gitMergeDevelop': 'sGitMergeDevelop',
         'gitTagMaster': 'sGitTagMaster',
@@ -19,7 +20,8 @@ def call(){
 def allStages(){
     sGitDiff()
     sNexusDownload()
-    //sRun()
+    sRun()
+    sTest()
     //sGitMergeMain()
     //sGitMergeDevelop()
     //sGitTagMain()
@@ -43,6 +45,13 @@ def sRun(){
     env.STAGE = "Stage Run"
     stage("$env.STAGE"){
         sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
+    }
+}
+
+def sTest(){
+    env.STAGE = "Stage Test"
+    stage("$env.STAGE"){
+        
     }
 }
 
