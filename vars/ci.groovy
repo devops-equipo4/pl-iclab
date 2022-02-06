@@ -87,7 +87,13 @@ def sGitCreateRelease() {
         sh 'echo "RETORNO $env.STAGE"'
         if (env.GIT_BRANCH =~ "develop*") {
             sh 'git checkout -b release-v2.0.0'
-            sh 'git push origin release-v2.0.0'
+            //sh 'git push origin release-v2.0.0'
+
+            sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:devops-equipo4/ms-iclab.git origin release-v2.0.0'
+
+
+
+
         }
     }
 }
