@@ -23,7 +23,7 @@ def allStages() {
     sRun()
     sTest()
     sGitMergeMain()
-    sGitMergeDevelop()
+   // sGitMergeDevelop()
     sGitTagMain()
 }
 
