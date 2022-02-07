@@ -26,14 +26,14 @@ def call() {
                         env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                         def validations = new validate.validations();
 
-                        printf "ARTIFACT"
-                        printf env.ARTIFACT
+                        echo "ARTIFACT"
+                        echo env.ARTIFACT
 
-                        printf "GROUP"
-                        printf env.GROUP
+                        echo "GROUP"
+                        echo env.GROUP
 
-                        printf "VERSION"
-                        printf env.VERSION
+                        echo "VERSION"
+                        echo env.VERSION
 
                         def branch = validations.validBranch()
                         echo "-----"
