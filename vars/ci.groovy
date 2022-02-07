@@ -100,8 +100,8 @@ def sGitCreateRelease() {
             sh "git checkout develop"
             //sh "git checkout -b release-v0-$env.BUILD_NUMBER-1"
             //sh "git push --set-upstream origin release-v0-$env.BUILD_NUMBER-1"
-            sh "git checkout -b release-v"+env.V_BREAK+"-"+env.V_BREAK+"-"+env.V_BREAK
-            sh "git push --set-upstream origin release-v"+env.V_BREAK+"-"+env.V_BREAK+"-"+env.V_BREAK
+            sh "git checkout -b release-v"+env.V_BREAK+"-"+env.V_FEATURE+"-"+env.V_FIX
+            sh "git push --set-upstream origin release-v"+env.V_BREAK+"-"+env.V_FEATURE+"-"+env.V_FIX
         }
     }
 }
