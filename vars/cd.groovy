@@ -71,6 +71,7 @@ def sGitMergeDevelop() {
     env.STAGE = "Stage Git Merge Develop"
     stage("$env.STAGE") {
         sh "git checkout develop"
+        sh "git pull"
         sh "git merge ${env.BRANCH} --no-ff --allow-unrelated-histories"
         //sh "git add ."
         sh "git commit -m 'omitir! release v$env.BUILD_NUMBER.0.0'"
