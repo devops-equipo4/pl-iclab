@@ -56,9 +56,9 @@ def versionSplit(){
     printf "env.VERSION"
     printf env.VERSION
 
-    env.V_BREAK = arrVersion.split('.')[0]
-    env.V_FEAT = arrVersion.split('.')[1]
-    env.V_FIX = arrVersion.split('.')[2]
+    env.V_BREAK = arrVersion.split("\\.")[0]
+    env.V_FEAT = arrVersion.split("\\.")[1]
+    env.V_FIX = arrVersion.split("\\.")[2]
     return true;
 }
 
