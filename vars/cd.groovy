@@ -52,7 +52,10 @@ def sTest() {
     env.STAGE = "Stage Test"
     stage("$env.STAGE") {
         sh 'echo "test"'
-        // sh "sleep 60 && curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
+        sh "sleep 60"
+        sh"curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
+        sh"curl -X GET 'http://localhost:8082/rest/mscovid/estadoMundial'"
+        sh"curl -X GET 'http://localhost:8082/rest/mscovid/estadoPais?pais=chile'"
     }
 }
 
@@ -73,8 +76,7 @@ def sGitMergeDevelop() {
         sh "git checkout develop"
         sh "git pull"
         sh "git merge ${env.BRANCH} --no-ff --allow-unrelated-histories"
-        //sh "git add ."
-        //sh "git commit -m 'omitir! release v$env.BUILD_NUMBER.0.0'"
+        sh "git commit -m 'omitir! release v$env.BUILD_NUMBER.0.0'"
         sh "git push origin develop"
     }
 }
