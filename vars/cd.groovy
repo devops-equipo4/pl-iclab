@@ -73,7 +73,7 @@ def sGitMergeDevelop() {
         sh "git checkout develop"
         sh "git merge ${env.BRANCH} --no-ff --allow-unrelated-histories"
         sh "git add ."
-        sh "git commit -m 'omitir! release'"
+        sh "git commit -m 'omitir! release v$env.BUILD_NUMBER.0.0'"
         sh "git push origin develop"
     }
 }
