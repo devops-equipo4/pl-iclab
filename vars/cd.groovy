@@ -72,7 +72,8 @@ def sGitMergeDevelop() {
     stage("$env.STAGE") {
         sh "git checkout develop"
         sh "git merge ${env.BRANCH} --no-ff --allow-unrelated-histories"
-        sh "git push origin develop -m 'omitir! release'"
+        sh "git commit -am -m 'omitir! release'"
+        sh "git push origin develop "
     }
 }
 
