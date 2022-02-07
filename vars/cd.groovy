@@ -37,14 +37,14 @@ def sGitDiff() {
 def sNexusDownload() {
     env.STAGE = "Stage Nexus Download"
     stage("$env.STAGE") {
-        sh 'curl -X GET -u $NEXUS_USER:$NEXUS_PASSWORD "http://nexus:8081/repository/devops-usach-nexus/com/'+$env.ARTIFACT.toLowerCase+'/'+$env.ARTIFACT+'/'+$env.VERSION+'/'+$env.ARTIFACT+'-'+$env.VERSION+'.jar" -O'
+        sh 'curl -X GET -u $NEXUS_USER:$NEXUS_PASSWORD "http://nexus:8081/repository/devops-usach-nexus/com/'+env.ARTIFACT.toLowerCase+'/'+env.ARTIFACT+'/'+env.VERSION+'/'+env.ARTIFACT+'-'+env.VERSION+'.jar" -O'
     }
 }
 
 def sRun() {
     env.STAGE = "Stage Run"
     stage("$env.STAGE") {
-        sh 'nohup java -jar '+$env.ARTIFACT+'-'+$env.VERSION+'.jar & >/dev/null'
+        sh 'nohup java -jar '+env.ARTIFACT+'-'+env.VERSION+'.jar & >/dev/null'
     }
 }
 
