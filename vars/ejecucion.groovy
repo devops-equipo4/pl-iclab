@@ -8,7 +8,9 @@ def call() {
             NEXUS_PASSWORD = credentials('password-nexus')
             //GIT_USERNAME = credentials('GIT_USERNAME')
             //GIT_PASSWORD = credentials('GIT_PASSWORD')
-
+            ARTIFACT = readMavenPom().getArtifactId()
+            GROUP = readMavenPom().getGroupId()
+            VERSION = readMavenPom().getVersion()
         }
         //parameters {
         //string  name: 'stages', description: 'Ingrese los stages para ejecutar', trim: true
@@ -28,6 +30,11 @@ def call() {
                         echo "-----"
                         echo "$branch"
                         echo "-----"
+
+                        validations.versionSplit()
+                        echo env.V_BREAK
+                        echo env.V_FEATURE
+                        echo env.V_FIX
 
                         if (!branch.isEmpty()) {
                             if (branch.contains("develop") || branch.contains("feature")) {

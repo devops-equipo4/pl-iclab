@@ -60,23 +60,23 @@ def sNexusUpload() {
     env.STAGE = "Stage Nexus Upload"
     stage("$env.STAGE") {
         nexusPublisher nexusInstanceId: 'nexus',
-                nexusRepositoryId: 'devops-usach-nexus',
-                packages: [
-                        [$class         : 'MavenPackage',
-                         mavenAssetList : [
-                                 [classifier: '',
-                                  extension : 'jar',
-                                  filePath  : 'build/DevOpsUsach2020-0.0.1.jar'
-                                 ]
-                         ],
-                         mavenCoordinate: [
-                                 artifactId: 'DevOpsUsach2020',
-                                 groupId   : 'com.devopsusach2020',
-                                 packaging : 'jar',
-                                 version   : '0.0.1'
-                         ]
-                        ]
-                ]
+        nexusRepositoryId: 'devops-usach-nexus',
+        packages: [
+            [$class         : 'MavenPackage',
+             mavenAssetList : [
+                 [classifier: '',
+                  extension : 'jar',
+                  filePath  : 'build/'+$env.ARTIFACT+'-'+$env.VERSION+'.jar'
+                 ]
+             ],
+             mavenCoordinate: [
+                 artifactId: $env.ARTIFACT,
+                 groupId   : $env.GROUP,
+                 packaging : 'jar',
+                 version   : $env.VERSION
+             ]
+            ]
+        ]
     }
 }
 
@@ -85,8 +85,10 @@ def sGitCreateRelease() {
     stage("Stage Git Create Release") {
         if (env.GIT_BRANCH =~ "develop*") {
             sh "git checkout develop"
-            sh "git checkout -b release-v$env.BUILD_NUMBER-0-0"
-            sh "git push --set-upstream origin release-v$env.BUILD_NUMBER-0-0"
+            //sh "git checkout -b release-v0-$env.BUILD_NUMBER-1"
+            //sh "git push --set-upstream origin release-v0-$env.BUILD_NUMBER-1"
+            sh "git checkout -b release-v"+env.V_BREAK+"-"+env.V_BREAK+"-"+env.V_BREAK
+            sh "git push --set-upstream origin release-v"+env.V_BREAK+"-"+env.V_BREAK+"-"+env.V_BREAK
         }
     }
 }

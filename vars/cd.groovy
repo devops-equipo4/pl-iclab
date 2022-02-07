@@ -37,14 +37,14 @@ def sGitDiff() {
 def sNexusDownload() {
     env.STAGE = "Stage Nexus Download"
     stage("$env.STAGE") {
-        sh 'curl -X GET -u $NEXUS_USER:$NEXUS_PASSWORD "http://nexus:8081/repository/devops-usach-nexus/com/devopsusach2020/DevOpsUsach2020/0.0.1/DevOpsUsach2020-0.0.1.jar" -O'
+        sh 'curl -X GET -u $NEXUS_USER:$NEXUS_PASSWORD "http://nexus:8081/repository/devops-usach-nexus/com/'+$env.ARTIFACT.toLowerCase+'/'+$env.ARTIFACT+'/'+$env.VERSION+'/'+$env.ARTIFACT+'-'+$env.VERSION+'.jar" -O'
     }
 }
 
 def sRun() {
     env.STAGE = "Stage Run"
     stage("$env.STAGE") {
-        sh 'nohup java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
+        sh 'nohup java -jar '+$env.ARTIFACT+'-'+$env.VERSION+'.jar & >/dev/null'
     }
 }
 
@@ -82,7 +82,7 @@ def sGitTagMain() {
     env.STAGE = "Stage Git Tag Main"
     stage("$env.STAGE") {
         sh "git checkout main"
-        sh "git tag -f v0.2 -m 'Release v0.2'"
+        sh "git tag -f v"+env.V_BREAK+"-"+env.V_BREAK+"-"+env.V_BREAK" -m 'Release v"+env.V_BREAK+"-"+env.V_BREAK+"-"+env.V_BREAK+"'"
         sh "git push --tags"
     }
 }
