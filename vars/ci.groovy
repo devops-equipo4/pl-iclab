@@ -60,13 +60,13 @@ def sNexusUpload() {
     env.STAGE = "Stage Nexus Upload"
 
     echo "ARTIFACT"
-    echo $env.ARTIFACT
+    echo env.ARTIFACT
 
     echo "VERSION"
-    echo $env.VERSION
+    echo env.VERSION
 
     echo "GROUP" 
-    echo $env.GROUP
+    echo env.GROUP
 
     stage("$env.STAGE") {
 
@@ -79,14 +79,14 @@ def sNexusUpload() {
              mavenAssetList : [
                  [classifier: '',
                   extension : 'jar',
-                  filePath  : 'build/'+$env.ARTIFACT+'-'+$env.VERSION+'.jar'
+                  filePath  : 'build/'+env.ARTIFACT+'-'+env.VERSION+'.jar'
                  ]
              ],
              mavenCoordinate: [
-                 artifactId: $env.ARTIFACT,
-                 groupId   : $env.GROUP,
+                 artifactId: env.ARTIFACT,
+                 groupId   : env.GROUP,
                  packaging : 'jar',
-                 version   : $env.VERSION
+                 version   : env.VERSION
              ]
             ]
         ]
