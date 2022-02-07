@@ -52,7 +52,12 @@ def sTest() {
     env.STAGE = "Stage Test"
     stage("$env.STAGE") {
         sh 'echo "test"'
-        // sh "sleep 60 && curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
+
+        sh "sleep 10"
+        sh"curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
+        sh"curl -X GET 'http://localhost:8082/rest/mscovid/estadoMundial'"
+        sh"curl -X GET 'http://localhost:8082/rest/mscovid/estadoPais?pais=chile'"
+
     }
 }
 
@@ -82,7 +87,7 @@ def sGitTagMain() {
     env.STAGE = "Stage Git Tag Main"
     stage("$env.STAGE") {
         sh "git checkout main"
-        sh "git tag -f v${env.V_BREAK}-${env.V_BREAK}-${env.V_BREAK} -m 'Release v${env.V_BREAK}-${env.V_BREAK}-${env.V_BREAK}'"
+        sh "git tag -f v${env.BUILD_NUMBER}-${env.V_BREAK}-${env.V_BREAK} -m 'Release v${env.BUILD_NUMBER}-${env.V_BREAK}-${env.V_BREAK}'"
         sh "git push --tags"
     }
 }
