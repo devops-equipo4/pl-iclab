@@ -54,9 +54,9 @@ def sTest() {
         sh 'echo "test"'
 
         sh "sleep 60"
-        sh"curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
-        sh"curl -X GET 'http://localhost:8082/rest/mscovid/estadoMundial'"
-        sh"curl -X GET 'http://localhost:8082/rest/mscovid/estadoPais?pais=chile'"
+        sh "curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
+        sh "curl -X GET 'http://localhost:8082/rest/mscovid/estadoMundial'"
+        sh "curl -X GET 'http://localhost:8082/rest/mscovid/estadoPais?pais=chile'"
 
     }
 }
