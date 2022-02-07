@@ -87,6 +87,8 @@ def sGitCreateRelease() {
             sh "git checkout develop"
             sh "git checkout -b release-v$env.BUILD_NUMBER-0-0"
             sh "git push --set-upstream origin release-v$env.BUILD_NUMBER-0-0"
+        }else{
+            sh 'echo "Branch del tipo feature"'
         }
     }
 }
