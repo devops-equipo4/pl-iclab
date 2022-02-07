@@ -69,6 +69,9 @@ def sNexusUpload() {
     printf $env.GROUP
 
     stage("$env.STAGE") {
+
+        printf('build/'+$env.ARTIFACT+'-'+$env.VERSION+'.jar')
+
         nexusPublisher nexusInstanceId: 'nexus',
         nexusRepositoryId: 'devops-usach-nexus',
         packages: [
