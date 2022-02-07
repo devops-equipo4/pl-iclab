@@ -83,6 +83,7 @@ def sGitTagMain() {
     stage("$env.STAGE") {
         sh "git checkout main"
         sh "git tag -a v2.0.0 -m 'tag 2.0.0'"
+        sh "git push --tag "
     }
 }
 
