@@ -24,7 +24,7 @@ def allStages() {
     sTest()
     sGitMergeMain()
     sGitMergeDevelop()
-    //sGitTagMain()
+    sGitTagMain()
 }
 
 def sGitDiff() {
@@ -82,7 +82,7 @@ def sGitTagMain() {
     env.STAGE = "Stage Git Tag Main"
     stage("$env.STAGE") {
         sh "git checkout main"
-        sh "git tag ${env.BRANCH}"
+        sh "git tag -a v2.0.0 -m 'tag 2.0.0'"
     }
 }
 
