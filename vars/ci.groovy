@@ -58,6 +58,16 @@ def sSonar() {
 
 def sNexusUpload() {
     env.STAGE = "Stage Nexus Upload"
+
+    printf("ARTIFACT")
+    printf $env.ARTIFACT
+
+    printf("VERSION")
+    printf $env.VERSION
+
+    printf("GROUP")
+    printf $env.GROUP
+
     stage("$env.STAGE") {
         nexusPublisher nexusInstanceId: 'nexus',
         nexusRepositoryId: 'devops-usach-nexus',
