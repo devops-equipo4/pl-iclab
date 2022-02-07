@@ -70,7 +70,7 @@ def sNexusUpload() {
 
     stage("$env.STAGE") {
 
-        echo 'build/'+$env.ARTIFACT+'-'+$env.VERSION+'.jar'
+        echo 'build/'+env.ARTIFACT+'-'+env.VERSION+'.jar'
 
         nexusPublisher nexusInstanceId: 'nexus',
         nexusRepositoryId: 'devops-usach-nexus',
