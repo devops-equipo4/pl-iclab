@@ -12,6 +12,10 @@ def call(stages) {
             'gitTagMaster'   : 'sGitTagMaster',
     ]
 
+    def arrayUtils = new array.arrayExtentions();
+    def stagesArray = []
+        stagesArray = arrayUtils.searchKeyInArray(stages, ";", listStagesOrder)
+
     if (stages.isEmpty()){
         allStages()
     }else{
