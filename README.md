@@ -1,2 +1,2 @@
-# pl-iclab
-Repo de Pipeline para Laboratorio Modulo 3
+# Laboratorio
+Branch: [cicd](https://github.com/devops-equipo4/pl-iclab/tree/cicd)
