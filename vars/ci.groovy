@@ -1,7 +1,7 @@
 import utilities.*
 
-//def call(stages){
-def call() {
+def call(stages){
+
 
     def listStagesOrder = [
             'compile'         : 'sCompile',
@@ -11,10 +11,15 @@ def call() {
             'nexusUpload'     : 'sNexusUpload',
             'gitCreateRelease': 'sGitCreateRelease',
     ]
-    allStages()
-    //if (stages.isEmpty()){
-    //    allStages()
-    //}
+
+    if (stages.isEmpty()){
+        allStages()
+    }else{
+        stagesArray.each{ stageFunction ->//variable as param
+            echo 'Ejecutando ' + stageFunction
+            "${stageFunction}"()
+        }
+    }
 }
 
 def allStages() {
