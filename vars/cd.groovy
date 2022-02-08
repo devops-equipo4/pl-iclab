@@ -1,6 +1,6 @@
 import utilities.*
 
-def call() {
+def call(stages) {
 
     def listStagesOrder = [
             'gitDiff'        : 'sGitDiff',
@@ -12,9 +12,18 @@ def call() {
             'gitTagMaster'   : 'sGitTagMaster',
     ]
 
-    //if (stages.isEmpty()){
-    allStages()
-    //}
+    def validations = new validate.validations();
+    def stagesArray = []
+    stagesArray = validations.searchKeyInArray(stages, ";", listStagesOrder)
+
+    if (stages.isEmpty()){
+        allStages()
+    }else{
+        stagesArray.each{ stageFunction ->//variable as param
+            echo 'Ejecutando ' + stageFunction
+            "${stageFunction}"()
+        }
+    }
 }
 
 def allStages() {
