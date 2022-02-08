@@ -12,9 +12,9 @@ def call(stages) {
             'gitTagMaster'   : 'sGitTagMaster',
     ]
 
-    def arrayUtils = new array.arrayExtentions();
+    def validations = new validate.validations();
     def stagesArray = []
-        stagesArray = arrayUtils.searchKeyInArray(stages, ";", listStagesOrder)
+    stagesArray = validations.searchKeyInArray(stages, ";", listStagesOrder)
 
     if (stages.isEmpty()){
         allStages()
